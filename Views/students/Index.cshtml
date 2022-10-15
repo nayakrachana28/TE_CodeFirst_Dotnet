@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TE_CodeFirst_Dotnet.Models.students>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">
+        <i class="fa-solid fa-user" style='font-size:20px'></i> <i class="fa fa-plus" aria-hidden="true"></i>
+
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentMobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentPassword)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentConfirmPassword)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentMobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentConfirmPassword)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.StudentId">
+                        <i class='fas fa-marker' style='font-size:25px'></i>
+                    </a> |
+                    <a asp-action="Details" asp-route-id="@item.StudentId"><i class="fa-solid fa-circle-info" style='font-size:25px'></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.StudentId"><i class="fa-solid fa-trash" style='font-size:25px'></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
